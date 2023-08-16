@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import './styles.css';
 
 
@@ -13,13 +10,6 @@ const TripScreen = () => {
     const [place, setPlace] = useState('');
     const [opinion, setOpinion] = useState('');
     const [items, setItems] = useState([]);
-    // const REACT_APP_URL = process.env.REACT_APP_URL;
-    // useEffect(() => {
-    //     setItems([
-    //         { author: 'Ray', title: 'Rome', opinion: 'Great place!' },
-    //         { author: 'Idan', title: 'Gedera', opinion: 'Amazing experience!' },
-    //     ]);
-    // }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
