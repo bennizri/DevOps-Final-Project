@@ -13,22 +13,13 @@ const TripScreen = () => {
     const [place, setPlace] = useState('');
     const [opinion, setOpinion] = useState('');
     const [items, setItems] = useState([]);
-    const REACT_APP_URL = process.env.REACT_APP_URL;
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`http://localhost:5000/get-all-items`);
-            const data = response.data;
-            setItems(data);
-
-        } catch (error) {
-            console.error('Error fetching data from the backend:', error);
-
-        }
-    };
+    // const REACT_APP_URL = process.env.REACT_APP_URL;
+    // useEffect(() => {
+    //     setItems([
+    //         { author: 'Ray', title: 'Rome', opinion: 'Great place!' },
+    //         { author: 'Idan', title: 'Gedera', opinion: 'Amazing experience!' },
+    //     ]);
+    // }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -41,36 +32,19 @@ const TripScreen = () => {
         }
     };
 
-    const handleClick = async () => {
-        console.log("insert to add");
-        const dataToSend = { name, place, opinion }; // Collect all the data here
-        try {
-            const response = await axios.post(`http://localhost:5000/add-variable`, dataToSend);
-            if (name.trim() !== '') {
-                setItems([...items, name]);
-                setName('');
-                setPlace('');
-                setOpinion('');
-                fetchData();
-            }
-        } catch (error) {
-            console.error('Error inserting variable:', error);
-            // Handle error as needed...
+    const handleClick = () => {
+        if (name.trim() !== '') {
+            setItems([...items, { author: name, title: place, opinion }]);
+            setName('');
+            setPlace('');
+            setOpinion('');
         }
-
     };
 
-    const handleDelete = async (index) => {
-        try {
-            console.log("click on delete!!!")
-            const itemToDelete = items[index].opinion; // Use 'content' property as the item ID
-            await axios.delete(`http://localhost:5000/delete-item/${itemToDelete}`);
-            const updatedItems = [...items];
-            updatedItems.splice(index, 1);
-            setItems(updatedItems);
-        } catch (error) {
-            console.error('Error deleting item:', error);
-        }
+    const handleDelete = (index) => {
+        const updatedItems = [...items];
+        updatedItems.splice(index, 1);
+        setItems(updatedItems);
     };
 
     return (
