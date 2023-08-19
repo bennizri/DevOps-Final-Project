@@ -1,0 +1,12 @@
+vpc_name: ansi
+network: 10.10.0.0/16
+aws_region: eu-central-1
+subnet_cidr: 10.10.0.0/24
+subnet: eu-central-1a
+Server_type: t2.micro
+keypair: keyPair
+server_volume_size: 10
+server_name: ansi-nginx2
+env: prod
+repo: git@github.com:Ray-Frenkel/DevOps-Final-Project.git
+aws_centos_ami: ami-0b4c74d41ee4bed78
