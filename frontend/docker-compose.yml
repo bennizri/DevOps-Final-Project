@@ -4,6 +4,6 @@ services:
       container_name: final-project
       environment:
         - NODE_ENV=prod
-      image: rayfrenkel\myapp:latest
+      image: rayfrenkel/myapp:latest
       ports:
         - "3000:3000"
