@@ -14,7 +14,7 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Build
-        run: docker build ./frontend --tag ${{ secrets.DOCKER_USER }}/DevOps-Final-Project:latest
+        run: docker build ./frontend --tag ${{ secrets.DOCKER_USER }}/rayfrenkel/myapp:latest
       - name: push to DockerHub
         run: docker push ${{ secrets.DOCKER_USER }}/rayfrenkel/myapp:latest
 
