@@ -2,6 +2,7 @@ import pytest
 from sel import setup_driver, navigate_to_site, add_item, delete_item
 from selenium.webdriver.common.by import By
 import time
+
 def test_add_and_delete():
     driver = setup_driver()
     navigate_to_site(driver)
