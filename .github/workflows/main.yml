@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: docker build ./frontend --tag ${{ secrets.DOCKER_USER }}/DevOps-Final-Project:latest
       - name: push to DockerHub
-        run: docker push ${{ secrets.DOCKER_USER }}/DevOps-Final-Project:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/rayfrenkel/myapp:latest
   deploy:
     needs: build
     runs-on: ubuntu-latest
