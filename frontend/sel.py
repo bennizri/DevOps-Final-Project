@@ -22,13 +22,15 @@ def add_item(driver, name, title, opinion):
 
     addBtn = driver.find_element(By.CLASS_NAME, "add-button")
     addBtn.click()
-
-def delete_item(driver):
+    print(f"Added Item - Name: {name}, Title: {title}, Opinion: {opinion}")
+def delete_item(driver, name, title, opinion):
     time.sleep(5)  # Sleep for 5 seconds
     deleteBtn = driver.find_element(By.CLASS_NAME, "delete-button")
     deleteBtn.click()
+    print(f"Deleted Item - Name: {name}, Title: {title}, Opinion: {opinion}")
 
 def navigate_to_site(driver):
     file = open("config.json","r")
     data = json.load(file)
     driver.get(data["url"])
+    

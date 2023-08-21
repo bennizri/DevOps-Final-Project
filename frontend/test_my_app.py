@@ -1,18 +1,28 @@
 import pytest
 from sel import setup_driver, navigate_to_site, add_item, delete_item
-
+from selenium.webdriver.common.by import By
+import time
 def test_add_and_delete():
     driver = setup_driver()
     navigate_to_site(driver)
-
-    # Test adding an item
+    initial_items = driver.find_elements(By.CLASS_NAME, "card")
+    initial_count = len(initial_items)
+    print(f'Initial item count: {initial_count}')
     add_item(driver, name="ben", title="london", opinion="very nice place")
 
-    # Verify the add operation here, if possible (e.g., by checking that a new item appears in the list)
+    time.sleep(2)
+    added_items = driver.find_elements(By.CLASS_NAME, "card")
+    added_count = len(added_items)
+    print(f'Added item count: {added_count}')
+    assert added_count == initial_count + 1, "Item was not added!"
 
-    # Test deleting the item
-    delete_item(driver)
+    delete_item(driver, name="ben", title="london", opinion="very nice place")
 
-    # Verify the delete operation here (e.g., by checking that the item is removed from the list)
+    time.sleep(2)
+    deleted_items = driver.find_elements(By.CLASS_NAME, "card")
+    deleted_count = len(deleted_items)
+    print(f'Deleted item count: {deleted_count}')
+    assert deleted_count == initial_count, "Item was not deleted!"
 
     driver.quit()
+
