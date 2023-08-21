@@ -1,1 +1,21 @@
-...
+name: upload image to docker
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: docker build ./frontend --tag app
+      - name: Run Docker
+        run: docker run -d --name app -p 80:3000 app
+      - name: setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: install dependencies
+        run: pip install selenium==4.4.3 pytest==7.4.0 webdriver-manager
+      - name: run tests
+        run: pytest -rA
