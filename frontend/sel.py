@@ -33,5 +33,5 @@ def delete_item(driver, name, title, opinion):
     print(f"Deleted Item - Name: {name}, Title: {title}, Opinion: {opinion}")
 
 def navigate_to_site(driver):
-    driver.get("http://localhost:3000/")
+    driver.get("http://localhost:80/")
     
