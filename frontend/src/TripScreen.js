@@ -38,7 +38,7 @@ const TripScreen = () => {
 
   return (
     <div className="container">
-      <h1>----Welcome to Travels Forum--:</h1>
+      <h1>Welcome to Travels Forum:</h1>
       <h3>you can write your recommendations and see others!</h3>
       <Form>
         <div className="form-column">
