@@ -39,6 +39,7 @@ const TripScreen = () => {
   return (
     <div className="container">
       <h1>Welcome to DEVOPS FINAL!!:</h1>
+
       <h3>you can write your recommendations and see others!</h3>
       <Form>
         <div className="form-column">

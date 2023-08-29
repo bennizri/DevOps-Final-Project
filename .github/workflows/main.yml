@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   build:
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,5 +32,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script_stop: true
           script: |
-            cd /opt/app
+            cd /opt/app/frontend
             sudo docker-compose pull && sudo docker-compose up -d --force-recreate

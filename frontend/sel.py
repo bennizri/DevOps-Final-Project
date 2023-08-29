@@ -33,7 +33,5 @@ def delete_item(driver, name, title, opinion):
     print(f"Deleted Item - Name: {name}, Title: {title}, Opinion: {opinion}")
 
 def navigate_to_site(driver):
-    file = open("config.json","r")
-    data = json.load(file)
-    driver.get(data["url"])
+    driver.get("http://localhost:80/")
     
